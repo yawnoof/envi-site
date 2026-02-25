@@ -1,33 +1,67 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Colors */
+  --void-black: #000000;
+  --pure-white: #FFFFFF;
+  --off-black: #0A0A0A;
+  --deep-gray: #111111;
+  --envi-aqua: #84FFF1;
+  --muted-white: #E8E8E8;
+  --ghost-gray: #555555;
+  --dark-overlay: rgba(0, 0, 0, 0.65);
+
+  /* Typography Variables mapped from Next.js fonts in layout.tsx */
+  --font-display: var(--font-cormorant-garamond), serif;
+  --font-ui: var(--font-manrope), sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
+/* Reset Base */
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  cursor: none;
+  /* Hide default cursor for our custom one */
+}
+
+body {
+  background-color: var(--void-black);
+  color: var(--muted-white);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Scale */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.display-text {
+  font-family: var(--font-display);
+  color: var(--pure-white);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.display-hero {
+  font-family: var(--font-display);
+  font-size: clamp(80px, 8vw, 120px);
+  font-weight: 300;
+  line-height: 0.95;
+}
+
+h1 {
+  font-size: clamp(56px, 5vw, 72px);
+}
+
+h2 {
+  font-size: clamp(36px, 4vw, 48px);
 }
 
 a {
@@ -35,8 +69,42 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* Common Layout Utilities */
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 120px;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 40px;
   }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+/* Animations Utilities */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
