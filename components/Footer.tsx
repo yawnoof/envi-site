@@ -1,33 +1,70 @@
 import styles from "./Footer.module.css";
 import Image from "next/image";
 import MagneticWrapper from "./MagneticWrapper";
+import { usePathname } from "next/navigation";
+
+const translations: Record<string, any> = {
+    en: {
+        headline: "Ready to escape the ordinary?",
+        paragraph: "We’re open to visionary partnerships in premium categories.\nLeave your email and we will contact you shortly regarding partnership opportunities.",
+        placeholder: "Your business email",
+        button: "Request Partnership Contact",
+        contactText: "Contact",
+        social: "Social",
+        company: "Company",
+        location: "Tallinn, Estonia"
+    },
+    ru: {
+        headline: "Готовы вырваться из обыденности?",
+        paragraph: "Мы открыты к дальновидным партнёрствам в премиальных категориях. Оставьте свой email — и мы свяжемся с вами в ближайшее время по вопросам партнёрства.",
+        placeholder: "Ваш рабочий email",
+        button: "Запросить партнёрство",
+        contactText: "Контакты",
+        social: "Соцсети",
+        company: "Компания",
+        location: "Таллинн, Эстония"
+    },
+    et: {
+        headline: "Valmis tavalisest välja murdma?",
+        paragraph: "Oleme avatud visionäärsetele partnerlussuhetele premium-kategooriates. Jätke oma e-posti aadress ja võtame teiega peagi ühendust seoses partnerlusvõimalustega.",
+        placeholder: "Teie äri e-post",
+        button: "Taotle partnerlust",
+        contactText: "Kontakt",
+        social: "Sotsiaalmeedia",
+        company: "Ettevõte",
+        location: "Tallinn, Eesti"
+    }
+};
 
 export default function Footer() {
+    const pathname = usePathname();
+    const currentLang = pathname?.split("/")[1] || "en";
+    const t = translations[currentLang] || translations.en;
+
     return (
         <footer id="contact" className={styles.footer}>
             <div className={`container ${styles.container}`}>
                 <div className={styles.top}>
                     <div className={styles.header}>
-                        <h2>Ready to escape the ordinary?</h2>
+                        <h2>{t.headline}</h2>
                         <p className={styles.subtitle}>
-                            We’re open to visionary partnerships in premium categories.
-                            <br /> Leave your email and we will contact you shortly regarding partnership opportunities.
+                            {t.paragraph}
                         </p>
                         <form className={styles.form}>
-                            <input type="email" placeholder="Your business email" className={`${styles.input} interactive`} />
-                            <MagneticWrapper><button type="button" className={`${styles.submitBtn} interactive`}>Request Partnership Contact</button></MagneticWrapper>
+                            <input type="email" placeholder={t.placeholder} className={`${styles.input} interactive`} />
+                            <MagneticWrapper><button type="button" className={`${styles.submitBtn} interactive`}>{t.button}</button></MagneticWrapper>
                         </form>
                     </div>
 
                     <div className={styles.contactGrid}>
                         <div className={styles.contactCol}>
-                            <h4>Contact</h4>
+                            <h4>{t.contactText}</h4>
                             <MagneticWrapper className={styles.linkWrapper}><a href="mailto:info@envi.ee" className={`interactive ${styles.link}`}>info@envi.ee</a></MagneticWrapper>
                             <MagneticWrapper className={styles.linkWrapper}><a href="tel:+37256077441" className={`interactive ${styles.link}`}>+372 560 77 441</a></MagneticWrapper>
                         </div>
 
                         <div className={styles.contactCol}>
-                            <h4>Social</h4>
+                            <h4>{t.social}</h4>
                             <div className={styles.socialIcons}>
                                 <MagneticWrapper className={styles.linkWrapper}>
                                     <a href="https://t.me/enviluxe" target="_blank" rel="noopener noreferrer" className={styles.iconLink} aria-label="Telegram">
@@ -47,11 +84,11 @@ export default function Footer() {
                         </div>
 
                         <div className={styles.contactCol}>
-                            <h4>Company</h4>
+                            <h4>{t.company}</h4>
                             <p className={styles.text}>Enviluxe OÜ</p>
                             <p className={styles.text}>Reg. nr.: 14476580</p>
                             <p className={styles.text}>VAT nr.: EE102882977</p>
-                            <p className={styles.text}>Tallinn, Estonia</p>
+                            <p className={styles.text}>{t.location}</p>
                         </div>
                     </div>
                 </div>

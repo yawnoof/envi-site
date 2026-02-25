@@ -4,8 +4,28 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import styles from "./Hero.module.css";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+
+const localizedContent: Record<string, any> = {
+    en: {
+        subtitle1: "Premium Import & Distribution",
+        subtitle2: "Tallinn, Estonia"
+    },
+    ru: {
+        subtitle1: "ПРЕМИАЛЬНЫЙ ИМПОРТ И ДИСТРИБУЦИЯ",
+        subtitle2: "ТАЛЛИНН, ЭСТОНИЯ"
+    },
+    et: {
+        subtitle1: "PREMIUM IMPORT JA DISTRIBUTSIOON",
+        subtitle2: "TALLINN, EESTI"
+    }
+};
 
 export default function Hero({ title = "Be The ENVI" }: { title?: string }) {
+    const pathname = usePathname();
+    const currentLang = pathname?.split("/")[1] || "en";
+    const content = localizedContent[currentLang] || localizedContent.en;
+
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -57,8 +77,8 @@ export default function Hero({ title = "Be The ENVI" }: { title?: string }) {
                     transition={{ delay: 1.2, duration: 1 }}
                     className={styles.subtextContainer}
                 >
-                    <p className={styles.subtext}>Premium Import & Distribution</p>
-                    <p className={styles.subtext}>Tallinn, Estonia</p>
+                    <p className={styles.subtext}>{content.subtitle1}</p>
+                    <p className={styles.subtext}>{content.subtitle2}</p>
                 </motion.div>
             </div>
 

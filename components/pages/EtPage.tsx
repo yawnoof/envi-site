@@ -49,13 +49,13 @@ export default function EtPage() {
                   variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 1.5, ease: [0.16, 1, 0.3, 1] } } }}
                   className={styles.hugeTitle}
                 >
-                  Ettevõttest ENVI
+                  ENVI kohta
                 </motion.h2>
               </div>
 
               <div className={styles.aboutContent}>
                 <motion.p variants={{ hidden: { opacity: 0, y: 20, filter: "blur(4px)" }, visible: { opacity: 1, y: 0, filter: "blur(0px)" } }} className={styles.leadParagraph}>
-                  ENVI on Tallinnas, Eestis tegutsev esmaklassiline impordi ja levitamise ettevõte.
+                  ENVI on Tallinnas, Eestis asuv premium-impordi ja -distributsioonifirma.
                 </motion.p>
 
                 <motion.div
@@ -64,10 +64,10 @@ export default function EtPage() {
                 />
 
                 <motion.p variants={{ hidden: { opacity: 0, y: 20, filter: "blur(4px)" }, visible: { opacity: 1, y: 0, filter: "blur(0px)" } }} className={styles.bodyText}>
-                  Pakume eksklusiivset ligipääsu erakordsetele rahvusvahelistele brändidele <span className={styles.highlight}>gurmeetoidu, peenveinide ja professionaalse kosmeetika</span> valdkonnas. ENVI loob pikaajalisi strateegilisi partnerlusi visioonikate tootjatega, pakkudes sujuvat turule sisenemist Baltikumis ja Euroopas: alates logistikast ja tollivormistusest kuni esmaklassilise turunduse ja müügikanalite arenduseni.
+                  Pakume eksklusiivset juurdepääsu erakordsetele rahvusvahelistele brändidele gurmeetoodete, peenveini ja kangete jookide ning professionaalse kosmeetika valdkonnas. ENVI loob pikaajalisi strateegilisi partnerlussuhteid visionäärsete tootjatega, tagades sujuva sisenemise Balti ja Euroopa turgudele: alates logistikast ja tollivormistusest kuni premium-turunduse ja müügikanalite arendamiseni.
                 </motion.p>
                 <motion.p variants={{ hidden: { opacity: 0, y: 20, filter: "blur(4px)" }, visible: { opacity: 1, y: 0, filter: "blur(0px)" } }} className={styles.bodyText}>
-                  Tallinnast — dünaamilisest Euroopa keskusest — tagame kõrgeima kvaliteedi, eksklusiivsuse ja täpsuse standardid.
+                  Tallinnast — dünaamilisest Euroopa keskusest — tagame kõrgeimad kvaliteedi-, eksklusiivsuse ja täpsuse standardid.
                 </motion.p>
               </div>
             </motion.div>
@@ -125,10 +125,10 @@ export default function EtPage() {
                   className={styles.contentDivider}
                 />
                 <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className={styles.leadParagraph}>
-                  Itaalia dermakosmeetika tipptasemel, mida toetab üle 40 aasta teaduslikku uurimistööd.
+                  Itaalia dermokosmeetiline tipptase, mida toetab üle 40 aasta teadusuuringuid.
                 </motion.p>
                 <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className={styles.bodyText}>
-                  Uuenduslikud valemid taastavad, tasakaalustavad ja elustavad nahka, kasutades botaanilisi tüvirakke ja naha biostimulatsiooni. Ideaalne professionaalidele, see pakub tipptasemel ravimeetodeid, mis muudavad isegi tundliku ja kahjustatud naha oma kõige tervemaks ja säravamaks olekuks.
+                  Innovaatilised valemid regenereerivad, tasakaalustavad ja taaselustab nahka taimsete tüvirakkude ja naha biostimulatsiooni abil. Ideaalne professionaalidele — tipptasemel protseduurid, mis muudavad isegi tundliku ja kahjustatud naha tervemaks ja säravamaks.
                 </motion.p>
               </motion.div>
             </div>

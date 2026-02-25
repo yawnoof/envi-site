@@ -10,6 +10,33 @@ import MagneticWrapper from "./MagneticWrapper";
 
 const LANGUAGES = ["ET", "RU", "EN"];
 
+const translations: Record<string, any> = {
+    en: {
+        about: "About ENVI",
+        focus: "Our Focus",
+        partners: "Partnership",
+        contact: "Contact",
+        menu: "MENU",
+        close: "CLOSE"
+    },
+    ru: {
+        about: "О ENVI",
+        focus: "Наш фокус",
+        partners: "Партнёрство",
+        contact: "Контакты",
+        menu: "МЕНЮ",
+        close: "ЗАКРЫТЬ"
+    },
+    et: {
+        about: "ENVI kohta",
+        focus: "Meie fookus",
+        partners: "Partnerlus",
+        contact: "Kontakt",
+        menu: "MENÜÜ",
+        close: "SULGE"
+    }
+};
+
 export default function Navigation() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -78,7 +105,7 @@ export default function Navigation() {
         <>
             <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
                 <div className={styles.container}>
-                    <Link href={`/${currentLang.toLowerCase()}`} className={styles.logoLink}>
+                    <Link href={`/${currentLang.toLowerCase()}`} onClick={() => setMobileMenuOpen(false)} className={styles.logoLink}>
                         <Image
                             src="/images/ENVI.webp"
                             alt="ENVI Logo"
@@ -91,10 +118,10 @@ export default function Navigation() {
                     {/* Desktop Nav */}
                     <div className={styles.desktopNav}>
                         <div className={styles.menuItems}>
-                            <MagneticWrapper><a href="#about" onClick={(e) => scrollToSection(e, 'about')} className={styles.menuItem}>About ENVI</a></MagneticWrapper>
-                            <MagneticWrapper><a href="#focus" onClick={(e) => scrollToSection(e, 'focus')} className={styles.menuItem}>Our Focus</a></MagneticWrapper>
-                            <MagneticWrapper><a href="#partners" onClick={(e) => scrollToSection(e, 'partners')} className={styles.menuItem}>Partnership</a></MagneticWrapper>
-                            <MagneticWrapper><a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className={styles.menuItem}>Contact</a></MagneticWrapper>
+                            <MagneticWrapper><a href="#about" onClick={(e) => scrollToSection(e, 'about')} className={styles.menuItem}>{translations[currentLang]?.about || translations.en.about}</a></MagneticWrapper>
+                            <MagneticWrapper><a href="#focus" onClick={(e) => scrollToSection(e, 'focus')} className={styles.menuItem}>{translations[currentLang]?.focus || translations.en.focus}</a></MagneticWrapper>
+                            <MagneticWrapper><a href="#partners" onClick={(e) => scrollToSection(e, 'partners')} className={styles.menuItem}>{translations[currentLang]?.partners || translations.en.partners}</a></MagneticWrapper>
+                            <MagneticWrapper><a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className={styles.menuItem}>{translations[currentLang]?.contact || translations.en.contact}</a></MagneticWrapper>
                         </div>
 
                         <div className={styles.langSwitch}>
@@ -119,7 +146,7 @@ export default function Navigation() {
                         className={styles.mobileToggle}
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     >
-                        {mobileMenuOpen ? "CLOSE" : "MENU"}
+                        {mobileMenuOpen ? translations[currentLang]?.close || translations.en.close : translations[currentLang]?.menu || translations.en.menu}
                     </button>
                 </div>
             </nav>
@@ -132,10 +159,10 @@ export default function Navigation() {
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
                 <div className={styles.mobileMenuItems}>
-                    <a href="#about" onClick={(e) => scrollToSection(e, 'about')}>About ENVI</a>
-                    <a href="#focus" onClick={(e) => scrollToSection(e, 'focus')}>Our Focus</a>
-                    <a href="#partners" onClick={(e) => scrollToSection(e, 'partners')}>Partnership</a>
-                    <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')}>Contact</a>
+                    <a href="#about" onClick={(e) => scrollToSection(e, 'about')}>{translations[currentLang]?.about || translations.en.about}</a>
+                    <a href="#focus" onClick={(e) => scrollToSection(e, 'focus')}>{translations[currentLang]?.focus || translations.en.focus}</a>
+                    <a href="#partners" onClick={(e) => scrollToSection(e, 'partners')}>{translations[currentLang]?.partners || translations.en.partners}</a>
+                    <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')}>{translations[currentLang]?.contact || translations.en.contact}</a>
 
                     <div className={styles.mobileLang}>
                         {LANGUAGES.map((lang, index) => (

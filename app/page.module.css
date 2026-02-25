@@ -107,7 +107,6 @@
   width: 100%;
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .editorialImg {
@@ -124,7 +123,7 @@
 .editorialContent {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 32px;
   padding-left: 48px;
 }
 
