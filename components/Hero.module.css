@@ -91,12 +91,18 @@
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+
+.scrollIndicator:hover {
+    opacity: 1;
 }
 
 .mouse {
     width: 24px;
     height: 40px;
-    border: 1px solid var(--ghost-gray);
+    border: 1px solid rgba(255, 255, 255, 0.6);
     border-radius: 12px;
     position: relative;
 }
@@ -104,7 +110,7 @@
 .wheel {
     width: 2px;
     height: 6px;
-    background-color: var(--envi-aqua);
+    background-color: rgba(255, 255, 255, 0.9);
     position: absolute;
     top: 8px;
     left: 50%;

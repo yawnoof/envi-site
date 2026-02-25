@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import styles from "./FocusCards.module.css";
+import pageStyles from "@/app/page.module.css";
 import Image from "next/image";
 
 const categories = [
@@ -24,7 +25,7 @@ const categories = [
         label: "Category",
         title: "Professional Cosmetics",
         description: "We present professional cosmetics of the highest caliber — advanced, science-backed formulations that deliver visible transformation and timeless beauty.",
-        image: "/images/7d226198-69a8-47ec-9b0f-4991a32c5f74.webp" // Placeholder
+        image: "/images/histomer_products.png"
     }
 ];
 
@@ -33,7 +34,7 @@ export default function FocusCards() {
         <section id="focus" className={styles.section}>
             <div className={`container ${styles.container}`}>
                 <motion.div
-                    className={styles.header}
+                    className={`${pageStyles.aboutHeader} ${styles.header}`}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
@@ -42,8 +43,25 @@ export default function FocusCards() {
                         visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 1.2, ease: "easeOut" } }
                     }}
                 >
-                    <h2>Our Focus</h2>
-                    <p className={styles.intro}>
+                    <div className={pageStyles.overlineWrapper}>
+                        <motion.div
+                            variants={{ hidden: { scaleX: 0 }, visible: { scaleX: 1, transition: { duration: 1.5, ease: "circOut" } } }}
+                            className={pageStyles.horizontalMark}
+                        />
+                        <motion.span
+                            variants={{ hidden: { opacity: 0, x: -10 }, visible: { opacity: 1, x: 0, transition: { duration: 1.2, ease: "easeOut" } } }}
+                            className={pageStyles.overline}
+                        >
+                            Our Focus
+                        </motion.span>
+                    </div>
+                    <motion.h2
+                        variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 1.5, ease: [0.16, 1, 0.3, 1] } } }}
+                        className={pageStyles.hugeTitle}
+                    >
+                        Our Focus
+                    </motion.h2>
+                    <p className={styles.intro} style={{ marginTop: "40px", maxWidth: "700px" }}>
                         Three directions define ENVI: gourmet experiences of unparalleled quality, fine wine & spirits that embody timeless refinement, and cosmetics crafted for transformative results.
                     </p>
                 </motion.div>
@@ -73,7 +91,6 @@ export default function FocusCards() {
                                 </div>
                             </div>
                             <div className={styles.textCol}>
-                                <span className={styles.index}>0{index + 1}</span>
                                 <h3 className={styles.cardTitle}>{cat.title}</h3>
                                 <p className={styles.cardBody}>{cat.description}</p>
                             </div>

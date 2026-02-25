@@ -92,7 +92,7 @@ export default function RuPage() {
                   visible: { scale: 1, opacity: 1, filter: "blur(0px)", transition: { duration: 1.5, ease: "easeOut" } }
                 }}
               >
-                <Image src="/images/histomer-professional-cosmetics.webp" alt="Histomer Partnership" fill className={styles.editorialImg} />
+                <Image src="/images/Histomer professional_Logotype_Primary version_White.png" alt="Histomer Partnership Logo" fill className={styles.editorialImg} />
               </motion.div>
 
               <motion.div
@@ -102,13 +102,21 @@ export default function RuPage() {
                 viewport={{ once: true, amount: 0.3 }}
                 variants={{
                   hidden: { opacity: 0, y: 60, filter: "blur(10px)" },
-                  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { staggerChildren: 0.2, duration: 1.2, ease: "easeOut", delayChildren: 0.3 } }
+                  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { staggerChildren: 0.25, duration: 1.4, ease: "easeOut", delayChildren: 0.4 } }
                 }}
               >
-                <motion.span variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className={styles.label}>Официальное Партнерство</motion.span>
+                <div className={styles.overlineWrapper}>
+                  <motion.div
+                    variants={{ hidden: { scaleX: 0 }, visible: { scaleX: 1, transition: { duration: 1.5, ease: "circOut" } } }}
+                    className={styles.horizontalMark}
+                  />
+                  <motion.span variants={{ hidden: { opacity: 0, x: -10 }, visible: { opacity: 1, x: 0, transition: { duration: 1.2, ease: "easeOut" } } }} className={styles.label}>
+                    Официальное Партнерство
+                  </motion.span>
+                </div>
                 <motion.h2
-                  variants={{ hidden: { opacity: 0, x: 40 }, visible: { opacity: 1, x: 0 } }}
-                  className={styles.editorialTitle}
+                  variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: "easeOut" } } }}
+                  className={styles.hugeTitle}
                 >
                   Histomer<br />Professional
                 </motion.h2>

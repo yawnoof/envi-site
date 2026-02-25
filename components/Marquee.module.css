@@ -1,12 +1,12 @@
 .container {
     width: 100vw;
-    padding: 120px 0;
+    padding: 80px 0 100px 0;
     background-color: var(--void-black);
     display: flex;
     justify-content: center;
     align-items: center;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: linear-gradient(180deg, var(--void-black) 0%, rgba(10, 10, 10, 0.5) 100%);
 }
 
 .inner {

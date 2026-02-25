@@ -38,6 +38,12 @@
 .logo {
     object-fit: contain;
     filter: invert(1) brightness(2) drop-shadow(0 0 1px rgba(255, 255, 255, 0.5));
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.logo:hover {
+    opacity: 0.8;
+    transform: scale(0.98);
 }
 
 .desktopNav {
@@ -62,22 +68,12 @@
     text-transform: uppercase;
     letter-spacing: 0.25em;
     position: relative;
-    transition: color 0.3s ease;
+    transition: opacity 0.3s ease;
+    opacity: 1;
 }
 
-.menuItem::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 0;
-    height: 1px;
-    background-color: var(--envi-aqua);
-    transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.menuItem:hover::after {
-    width: 100%;
+.menuItem:hover {
+    opacity: 0.7;
 }
 
 .langSwitch {
@@ -176,8 +172,21 @@
 }
 
 @media (max-width: 768px) {
+    .nav {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
     .container {
-        padding: 0 20px;
+        padding: 0 32px;
+    }
+
+    .logo {
+        width: 85px;
+        height: auto;
+    }
+
+    .logo:hover {
+        transform: scale(0.96);
     }
 
     .desktopNav {

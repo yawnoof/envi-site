@@ -78,7 +78,7 @@ export default function Navigation() {
         <>
             <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
                 <div className={styles.container}>
-                    <Link href="/" className={styles.logoLink}>
+                    <Link href={`/${currentLang.toLowerCase()}`} className={styles.logoLink}>
                         <Image
                             src="/images/ENVI.webp"
                             alt="ENVI Logo"
